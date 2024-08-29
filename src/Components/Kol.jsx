@@ -12,7 +12,7 @@ import Elja from '../assets/KOlsImage/Elja.jpg'
 
 import Martini from '../assets/KOlsImage/Martini.jpg'
 import King from '../assets/KOlsImage/King.jpg'
-import Mason from '../assets/KOlsImage/Mason.jpg'
+import MASON from '../assets/KOlsImage/MASON.jpg'
 import Rover from '../assets/KOlsImage/Rover.jpg'
 
 const kols = [
@@ -24,7 +24,7 @@ const kols = [
   { name: 'Eljaboom', handle: '@Eljaboom', image: Elja },
   { name: 'Martini Guy', handle: '@MartiniGuyYT', image: Martini },
   { name: 'Cryptoking', handle: '@Cryptoking', image: King },
-  { name: 'Mason Versluis', handle: '@MasonVersluis', image: Mason },
+  { name: 'Mason Versluis', handle: '@MasonVersluis', image: MASON },
   { name: 'Rover', handle: '@rovercrc', image: Rover },
 ];
 

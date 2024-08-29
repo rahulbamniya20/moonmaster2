@@ -87,7 +87,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#5c22da] text-white px-6 py-3 rounded-full font-medium hover:bg-purple-600 transition-colors flex items-center space-x-2"
+            className="bg-[#5c22da] text-white px-6 py-3 rounded-md font-medium hover:bg-purple-600 transition-colors flex items-center space-x-2"
           >
             Schedule a Call
           </motion.button>
