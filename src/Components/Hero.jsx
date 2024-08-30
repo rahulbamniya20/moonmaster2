@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Spline from '@splinetool/react-spline';
@@ -45,7 +44,8 @@ const Hero = () => {
                 ]}
                 wrapper="span"
                 speed={50}
-                className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+                // className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+                className="text-transparent bg-clip-text  bg-purple-500"
                 repeat={Infinity}
               />
               <span className="block leading-normal">To The Moon?</span>
