@@ -104,12 +104,11 @@
 
 // export default Navbar;
 
-
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
-function Navbar() {
+function Navbar({ scrollToAbout, scrollToServices, scrollToContact }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -134,10 +133,10 @@ function Navbar() {
     <nav className="absolute top-8 left-0 right-0 z-20 flex items-center justify-between px-8">
       <div className="text-white font-bold text-xl">MoonMaster</div>
       <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-4 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-full px-6 py-2">
-        <NavItem href="#" text="Home" />
-        <NavItem href="#" text="About" />
-        <NavItem href="#" text="Service" />
-        <NavItem href="#" text="Contact Us" />
+        <NavItem onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} text="Home" />
+        <NavItem onClick={scrollToAbout} text="About" />
+        <NavItem onClick={scrollToServices} text="Services" />
+        <NavItem onClick={scrollToContact} text="Contact Us" />
       </div>
       <div className="hidden md:block">
         <ApplyButton />
@@ -153,18 +152,23 @@ function Navbar() {
       </div>
       <AnimatePresence>
         {isOpen && (
-          <MobileMenu closeMenu={closeMenu} menuRef={menuRef} />
+          <MobileMenu 
+            closeMenu={closeMenu} 
+            menuRef={menuRef}
+            scrollToAbout={scrollToAbout}
+            scrollToServices={scrollToServices}
+            scrollToContact={scrollToContact}
+          />
         )}
       </AnimatePresence>
     </nav>
   );
 }
 
-function NavItem({ href, text, onClick }) {
+function NavItem({ onClick, text }) {
   return (
-    <motion.a
-      href={href}
-      className="relative text-white px-3 py-1 rounded-full transition-colors"
+    <motion.div
+      className="relative text-white px-3 py-1 rounded-full transition-colors cursor-pointer"
       whileHover="hover"
       initial="rest"
       animate="rest"
@@ -206,7 +210,7 @@ function NavItem({ href, text, onClick }) {
           }
         }}
       />
-    </motion.a>
+    </motion.div>
   );
 }
 
@@ -235,9 +239,9 @@ function ApplyButton({ onClick }) {
         }}
       />
       <motion.button
-        className="relative bg-[#5c22da] text-white px-4 py-2 rounded-md font-small"
+        className="relative bg-gradient-to-r from-purple-600 to-[#33069d] hover:from-[#33069d] hover:to-purple-600  text-white px-4 py-2 rounded-lg font-small"
         variants={{
-          hover: { scale: 1.05 },
+          hover: { scale: 1.1 },
           rest: { scale: 1 }
         }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -248,7 +252,14 @@ function ApplyButton({ onClick }) {
   );
 }
 
-function MobileMenu({ closeMenu, menuRef }) {
+
+
+
+
+
+
+
+function MobileMenu({ closeMenu, menuRef, scrollToAbout, scrollToServices, scrollToContact }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -265,10 +276,10 @@ function MobileMenu({ closeMenu, menuRef }) {
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
         className="absolute right-0 top-0 bottom-0 w-64 bg-[#19083E] p-8 flex flex-col space-y-4"
       >
-        <NavItem href="#" text="Home" onClick={closeMenu} />
-        <NavItem href="#" text="About" onClick={closeMenu} />
-        <NavItem href="#" text="Service" onClick={closeMenu} />
-        <NavItem href="#" text="Contact Us" onClick={closeMenu} />
+        <NavItem onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); closeMenu(); }} text="Home" />
+        <NavItem onClick={() => { scrollToAbout(); closeMenu(); }} text="About" />
+        <NavItem onClick={() => { scrollToServices(); closeMenu(); }} text="Services" />
+        <NavItem onClick={() => { scrollToContact(); closeMenu(); }} text="Contact Us" />
         <div className="mt-auto">
           <ApplyButton onClick={closeMenu} />
         </div>

@@ -152,9 +152,9 @@ const OurNumbers = () => {
       }
     };
   }, []);
-
+  // bg-gradient-to-r from-[#2F58CD] via-[#4E31AA] to-[#3A1078]
   return (
-    <div className="bg-[#0f0529] py-20 px-4" ref={sectionRef}>
+    <div className=" bg-[#00005C] py-20 px-4" ref={sectionRef}>
       <motion.h2
         className="text-3xl md:text-4xl text-center font-bold text-purple-400 mb-16"
         initial={{ opacity: 0, y: -20 }}
